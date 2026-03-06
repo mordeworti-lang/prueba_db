@@ -8,8 +8,9 @@ const rateLimit = require('express-rate-limit');
 const errorMiddleware = require('./middleware/errorMiddleware');
 const authRoutes      = require('./routes/auth');
 const saleRoutes      = require('./routes/sale');
-const clientRoutes    = require('./routes/clients');   // FIX: was './routes/patients'
-const productRoutes   = require('./routes/product');   // NEW: full product CRUD
+const clientRoutes    = require('./routes/clients');
+const productRoutes   = require('./routes/product');
+const cartRoutes      = require('./routes/cart');
 const reportsRoutes   = require('./routes/reports');
 const adminRoutes     = require('./routes/admin');
 const simulacroRoutes = require('./routes/simulacro');
@@ -23,6 +24,9 @@ app.use(cors({ origin: '*', credentials: false }));
 // ── BODY PARSERS ──────────────────────────────────────────────────────────────
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// ── STATIC FILES ─────────────────────────────────────────────────────────────
+app.use(express.static('public'));
 
 // ── RATE LIMITING ─────────────────────────────────────────────────────────────
 app.use('/api', rateLimit({
@@ -44,9 +48,10 @@ app.get('/health', (req, res) => res.json({
 app.use('/api/auth',      authRoutes);
 app.use('/api/simulacro', simulacroRoutes);
 app.use('/api/reports',   reportsRoutes);
-app.use('/api/clients',   clientRoutes);   // FIX: correct module name
+app.use('/api/clients',   clientRoutes);
 app.use('/api/sales',     saleRoutes);
-app.use('/api/products',  productRoutes);  // NEW
+app.use('/api/products',  productRoutes);
+app.use('/api/cart',      cartRoutes);
 app.use('/api/admin',     adminRoutes);
 
 // ── GLOBAL ERROR HANDLER ──────────────────────────────────────────────────────

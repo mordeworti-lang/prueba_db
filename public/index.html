@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaStore Global - Dark Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#0a0a0a',
+                            card: '#1a1a1a',
+                            border: '#2a2a2a',
+                            text: '#e5e5e5',
+                            muted: '#a0a0a0',
+                            accent: '#dc2626',
+                            primary: '#1f2937',
+                            secondary: '#374151'
+                        }
+                    },
+                    fontFamily: {
+                        'mafia': ['Georgia', 'serif'],
+                        'elegant': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen text-gray-100">
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="mafia-nav sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-crown text-red-600 text-2xl mr-3"></i>
+                        <h1 class="text-xl font-black font-mafia tracking-wider">MEGASTORE</h1>
+                        <span class="text-red-600 ml-2 font-bold">GLOBAL</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div id="userInfo" class="text-sm font-mafia text-gray-300"></div>
+                    <button onclick="logout()" class="mafia-button px-4 py-2 rounded-lg text-sm font-bold text-white" data-loading>
+                        <i class="fas fa-sign-out-alt mr-2"></i>EXIT
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN CONTAINER ===== -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- ===== AUTH SECTION ===== -->
+        <div id="authSection" class="hidden">
+            <div class="min-h-screen flex items-center justify-center">
+                <div class="glass-dark rounded-2xl p-8 w-full max-w-md fade-in-up">
+                    <div class="text-center mb-8">
+                        <i class="fas fa-crown text-6xl text-red-600 mb-4"></i>
+                        <h2 class="text-3xl font-black font-mafia tracking-wider text-red-600">MEGASTORE</h2>
+                        <p class="text-gray-400 font-mafia">Acceso Exclusivo</p>
+                    </div>
+
+                    <!-- ===== LOGIN FORM ===== -->
+                    <div id="loginForm" class="mafia-form">
+                        <div class="mafia-form-group">
+                            <label class="mafia-label">EMAIL</label>
+                            <input type="email" id="loginEmail" class="mafia-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="admin@megastore.com">
+                        </div>
+                        <div class="mafia-form-group">
+                            <label class="mafia-label">PASSWORD</label>
+                            <input type="password" id="loginPassword" class="mafia-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="•••••••">
+                        </div>
+                        <button onclick="login()" class="w-full mafia-button px-6 py-3 rounded-lg text-white font-bold font-mafia tracking-wider" data-loading>
+                            <i class="fas fa-key mr-2"></i>ACCESS GRANTED
+                        </button>
+                    </div>
+
+                    <!-- ===== REGISTER FORM ===== -->
+                    <div id="registerForm" class="hidden mafia-form">
+                        <div class="mafia-form-group">
+                            <label class="mafia-label">NAME</label>
+                            <input type="text" id="registerName" class="mafia-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="Your Name">
+                        </div>
+                        <div class="mafia-form-group">
+                            <label class="mafia-label">EMAIL</label>
+                            <input type="email" id="registerEmail" class="mafia-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="your@email.com">
+                        </div>
+                        <div class="mafia-form-group">
+                            <label class="mafia-label">PASSWORD</label>
+                            <input type="password" id="registerPassword" class="mafia-input w-full px-4 py-3 rounded-lg text-white focus:outline-none" placeholder="•••••••">
+                        </div>
+                        <button onclick="register()" class="w-full bg-green-700 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition font-mafia" data-loading>
+                            <i class="fas fa-user-plus mr-2"></i>JOIN FAMILY
+                        </button>
+                    </div>
+
+                    <div class="mt-6 text-center">
+                        <button onclick="toggleAuthForm()" class="text-red-600 hover:text-red-500 text-sm font-mafia">
+                            <span id="authToggleText">New to Family? Join Us</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== DASHBOARD SECTION ===== -->
+        <div id="dashboardSection" class="hidden">
+            <!-- ===== STATS CARDS ===== -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 fade-in-up">
+                <div class="stat-card">
+                    <div class="flex items-center">
+                        <div class="stat-icon stat-icon-red">
+                            <i class="fas fa-shopping-cart text-2xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-gray-400 text-sm font-mafia">TOTAL SALES</p>
+                            <p id="totalSales" class="text-2xl font-black font-mafia text-white">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="flex items-center">
+                        <div class="stat-icon stat-icon-green">
+                            <i class="fas fa-dollar-sign text-2xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-gray-400 text-sm font-mafia">REVENUE</p>
+                            <p id="totalRevenue" class="text-2xl font-black font-mafia text-white">$0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="flex items-center">
+                        <div class="stat-icon stat-icon-purple">
+                            <i class="fas fa-users text-2xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-gray-400 text-sm font-mafia">CLIENTS</p>
+                            <p id="totalClients" class="text-2xl font-black font-mafia text-white">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="flex items-center">
+                        <div class="stat-icon stat-icon-orange">
+                            <i class="fas fa-box text-2xl"></i>
+                        </div>
+                        <div class="ml-4">
+                            <p class="text-gray-400 text-sm font-mafia">PRODUCTS</p>
+                            <p id="totalProducts" class="text-2xl font-black font-mafia text-white">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== MAIN CONTENT GRID ===== -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- ===== SALES SECTION ===== -->
+                <div class="lg:col-span-2">
+                    <div class="mafia-card rounded-xl p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-black font-mafia text-white">
+                                <i class="fas fa-chart-line mr-2 text-red-500"></i>RECENT TRANSACTIONS
+                            </h3>
+                            <button onclick="MafiaApp.loadSales()" class="mafia-button px-4 py-2 rounded-lg text-sm font-bold text-white" data-loading>
+                                <i class="fas fa-sync-alt mr-2"></i>REFRESH
+                            </button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full mafia-table rounded-lg">
+                                <thead>
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-bold font-mafia text-gray-300 uppercase tracking-wider">ID</th>
+                                        <th class="px-6 py-3 text-left text-xs font-bold font-mafia text-gray-300 uppercase tracking-wider">CLIENT</th>
+                                        <th class="px-6 py-3 text-left text-xs font-bold font-mafia text-gray-300 uppercase tracking-wider">PRODUCT</th>
+                                        <th class="px-6 py-3 text-left text-xs font-bold font-mafia text-gray-300 uppercase tracking-wider">QTY</th>
+                                        <th class="px-6 py-3 text-left text-xs font-bold font-mafia text-gray-300 uppercase tracking-wider">TOTAL</th>
+                                        <th class="px-6 py-3 text-left text-xs font-bold font-mafia text-gray-300 uppercase tracking-wider">DATE</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="salesTableBody" class="divide-y divide-gray-800">
+                                    <!-- Sales will be loaded here -->
+                                </tbody>
+                            </table>
+                            <div id="noSalesMessage" class="text-center py-8 text-gray-500 hidden">
+                                <i class="fas fa-inbox text-4xl mb-4"></i>
+                                <p class="font-mafia">No transactions found</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== CART SECTION (CLIENTS ONLY) ===== -->
+                <div id="cartSection" class="hidden">
+                    <div class="mafia-card rounded-xl p-6">
+                        <h3 class="text-xl font-black font-mafia text-white mb-6">
+                            <i class="fas fa-shopping-basket mr-2 text-green-500"></i>SHOPPING CART
+                        </h3>
+                        
+                        <!-- ===== ADD PRODUCT FORM ===== -->
+                        <div class="mb-6 p-4 bg-black/30 rounded-lg border border-gray-800">
+                            <h4 class="font-bold font-mafia mb-3 text-gray-300">ADD PRODUCT</h4>
+                            <div class="space-y-3">
+                                <input type="number" id="cartProductId" placeholder="Product ID" class="mafia-input w-full px-3 py-2 rounded-lg text-white focus:outline-none">
+                                <input type="text" id="cartProductName" placeholder="Product Name" class="mafia-input w-full px-3 py-2 rounded-lg text-white focus:outline-none">
+                                <input type="number" id="cartQuantity" placeholder="Quantity" min="1" class="mafia-input w-full px-3 py-2 rounded-lg text-white focus:outline-none">
+                                <input type="number" id="cartPrice" placeholder="Unit Price" step="0.01" min="0" class="mafia-input w-full px-3 py-2 rounded-lg text-white focus:outline-none">
+                                <button onclick="addToCart()" class="w-full mafia-button px-4 py-2 rounded-lg text-white font-bold font-mafia" data-loading>
+                                    <i class="fas fa-plus mr-2"></i>ADD TO CART
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ===== CART ITEMS ===== -->
+                        <div id="cartItems" class="mb-4 max-h-48 overflow-y-auto scrollbar-dark">
+                            <!-- Cart items will be loaded here -->
+                        </div>
+
+                        <!-- ===== CART SUMMARY ===== -->
+                        <div class="border-t border-gray-700 pt-4">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold font-mafia text-gray-300">SUBTOTAL:</span>
+                                <span id="cartSubtotal" class="font-black font-mafia text-white">$0.00</span>
+                            </div>
+                            <div class="flex justify-between mb-4">
+                                <span class="font-bold font-mafia text-gray-300">ITEMS:</span>
+                                <span id="cartItemCount" class="font-black font-mafia text-white">0</span>
+                            </div>
+                            <button onclick="MafiaApp.checkout()" class="w-full mafia-button px-4 py-3 rounded-lg text-white font-bold font-mafia mb-2" data-loading>
+                                <i class="fas fa-credit-card mr-2"></i>CHECKOUT
+                            </button>
+                            <button onclick="MafiaApp.clearCart()" class="w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition font-mafia" data-loading>
+                                <i class="fas fa-trash mr-2"></i>CLEAR CART
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== ADMIN CONTROLS ===== -->
+                <div id="adminSection" class="hidden">
+                    <!-- ===== PRODUCT MANAGEMENT ===== -->
+                    <div class="mafia-card rounded-xl p-6 mb-6">
+                        <h3 class="text-xl font-black font-mafia text-white mb-6">
+                            <i class="fas fa-box mr-2 text-orange-500"></i>PRODUCT MANAGEMENT
+                        </h3>
+                        <div class="mafia-form">
+                            <input type="text" id="newProductName" placeholder="Product Name" class="mafia-input w-full px-3 py-2 rounded-lg text-white focus:outline-none">
+                            <input type="number" id="newProductPrice" placeholder="Price" step="0.01" class="mafia-input w-full px-3 py-2 rounded-lg text-white focus:outline-none">
+                            <input type="text" id="newProductCategory" placeholder="Category" class="mafia-input w-full px-3 py-2 rounded-lg text-white focus:outline-none">
+                            <button onclick="MafiaApp.addProduct()" class="w-full mafia-button px-4 py-2 rounded-lg text-white font-bold font-mafia" data-loading>
+                                <i class="fas fa-plus mr-2"></i>ADD PRODUCT
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ===== SUPPLIER MANAGEMENT ===== -->
+                    <div class="mafia-card rounded-xl p-6">
+                        <h3 class="text-xl font-black font-mafia text-white mb-6">
+                            <i class="fas fa-truck mr-2 text-blue-500"></i>SUPPLIER MANAGEMENT
+                        </h3>
+                        <div class="mafia-form">
+                            <input type="text" id="newSupplierName" placeholder="Supplier Name" class="mafia-input w-full px-3 py-2 rounded-lg text-white focus:outline-none">
+                            <input type="email" id="newSupplierEmail" placeholder="Contact Email" class="mafia-input w-full px-3 py-2 rounded-lg text-white focus:outline-none">
+                            <input type="tel" id="newSupplierPhone" placeholder="Phone" class="mafia-input w-full px-3 py-2 rounded-lg text-white focus:outline-none">
+                            <button onclick="MafiaApp.addSupplier()" class="w-full mafia-button px-4 py-2 rounded-lg text-white font-bold font-mafia" data-loading>
+                                <i class="fas fa-plus mr-2"></i>ADD SUPPLIER
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== BI REPORTS SECTION ===== -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <!-- ===== TOP SUPPLIERS ===== -->
+                <div class="mafia-card rounded-xl p-6">
+                    <h3 class="text-lg font-black font-mafia text-white mb-4">
+                        <i class="fas fa-crown mr-2 text-yellow-500"></i>TOP SUPPLIERS
+                    </h3>
+                    <div id="topSuppliers" class="space-y-3 max-h-64 overflow-y-auto scrollbar-dark">
+                        <!-- Suppliers data will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- ===== CLIENT HISTORY ===== -->
+                <div class="mafia-card rounded-xl p-6">
+                    <h3 class="text-lg font-black font-mafia text-white mb-4">
+                        <i class="fas fa-user-clock mr-2 text-purple-500"></i>CLIENT HISTORY
+                    </h3>
+                    <div class="mb-3">
+                        <input type="email" id="clientEmailInput" placeholder="Client Email" class="mafia-input w-full px-3 py-2 rounded-lg text-white focus:outline-none mb-2">
+                        <button onclick="MafiaApp.loadClientHistory()" class="w-full mafia-button px-4 py-2 rounded-lg text-sm font-bold text-white font-mafia" data-loading>
+                            <i class="fas fa-search mr-2"></i>SEARCH
+                        </button>
+                    </div>
+                    <div id="clientHistory" class="space-y-2 max-h-48 overflow-y-auto scrollbar-dark">
+                        <!-- Client history will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- ===== STAR PRODUCTS ===== -->
+                <div class="mafia-card rounded-xl p-6">
+                    <h3 class="text-lg font-black font-mafia text-white mb-4">
+                        <i class="fas fa-star mr-2 text-red-500"></i>STAR PRODUCTS
+                    </h3>
+                    <div id="starProducts" class="space-y-3 max-h-64 overflow-y-auto scrollbar-dark">
+                        <!-- Star products will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== MIGRATION AND AUDIT SECTION ===== -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+                <!-- ===== MIGRATION ===== -->
+                <div class="mafia-card rounded-xl p-6">
+                    <h3 class="text-lg font-black font-mafia text-white mb-4">
+                        <i class="fas fa-database mr-2 text-indigo-500"></i>DATA MIGRATION
+                    </h3>
+                    <p class="text-gray-400 mb-4 text-sm font-mafia">Import data from CSV to database</p>
+                    <div class="space-y-3">
+                        <button onclick="MafiaApp.migrateData(false)" class="w-full mafia-button px-4 py-2 rounded-lg text-white font-bold font-mafia" data-loading>
+                            <i class="fas fa-upload mr-2"></i>MIGRATE DATA
+                        </button>
+                        <button onclick="MafiaApp.migrateData(true)" class="w-full bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-lg transition font-mafia" data-loading>
+                            <i class="fas fa-trash-alt mr-2"></i>CLEAR & MIGRATE
+                        </button>
+                    </div>
+                    <div id="migrationStatus" class="mt-4 p-3 rounded-lg hidden"></div>
+                </div>
+
+                <!-- ===== AUDIT LOGS ===== -->
+                <div class="mafia-card rounded-xl p-6">
+                    <h3 class="text-lg font-black font-mafia text-white mb-4">
+                        <i class="fas fa-clipboard-list mr-2 text-red-500"></i>AUDIT LOGS
+                    </h3>
+                    <button onclick="MafiaApp.loadAuditLogs()" class="w-full mafia-button px-4 py-2 rounded-lg text-sm font-bold text-white mb-4 font-mafia" data-loading>
+                        <i class="fas fa-sync-alt mr-2"></i>REFRESH LOGS
+                    </button>
+                    <div id="auditLogs" class="space-y-2 max-h-64 overflow-y-auto scrollbar-dark">
+                        <!-- Audit logs will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TOAST NOTIFICATION ===== -->
+    <div id="toast" class="fixed bottom-4 right-4 hidden z-50">
+        <div class="mafia-toast rounded-lg p-4 flex items-center space-x-3 fade-in-up">
+            <div id="toastIcon"></div>
+            <div>
+                <p id="toastMessage" class="font-bold font-mafia text-white"></p>
+                <p id="toastDescription" class="text-sm text-gray-400"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== APP SCRIPT ===== -->
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>

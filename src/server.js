@@ -16,7 +16,7 @@ async function bootstrap() {
         console.log('MongoDB connected');
 
         app.listen(PORT, () => {
-            console.log(`MegaStore API running on port ${PORT}`);
+            console.log(`MegaStore API http://localhost:${PORT}`);
         });
     } catch (err) {
         console.error('Startup error:', err.message);

@@ -4,24 +4,28 @@
   "description": "MegaStore Global – Hybrid PostgreSQL + MongoDB REST API",
   "main": "src/server.js",
   "scripts": {
-    "start":   "node src/server.js",
-    "dev":     "nodemon src/server.js",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "migrate": "node scripts/run-migration.js",
     "migrate:clear": "node scripts/run-migration.js --clear"
   },
   "dependencies": {
-    "bcrypt":            "^5.1.1",
-    "cors":              "^2.8.5",
-    "csv-parse":         "^5.5.6",
-    "dotenv":            "^16.4.5",
-    "express":           "^5.0.1",
-    "express-rate-limit":"^7.4.1",
-    "helmet":            "^8.0.0",
-    "jsonwebtoken":      "^9.0.2",
-    "mongodb":           "^6.9.0",
-    "pg":                "^8.13.0"
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "csv-parse": "^5.5.6",
+    "dotenv": "^16.4.5",
+    "express": "^5.0.1",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.9.0",
+    "pg": "^8.13.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.7",
+    "supertest": "^7.2.2"
   }
 }

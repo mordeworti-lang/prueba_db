@@ -216,6 +216,32 @@ node scripts/run-migration.js --clear   # clear and reimport
 }
 ```
 
+### Shopping Cart
+
+| Method | Endpoint | Description | Auth |
+|---|---|---|---|
+| GET    | `/api/cart` | Get user's cart with totals | ✅ |
+| POST   | `/api/cart/items` | Add item to cart | ✅ |
+| DELETE | `/api/cart/items/:productId` | Remove item from cart | ✅ |
+| PUT    | `/api/cart/items/:productId` | Update item quantity | ✅ |
+| DELETE | `/api/cart` | Clear entire cart | ✅ |
+| POST   | `/api/cart/checkout` | Convert cart items to sales | ✅ |
+
+**POST /api/cart/items body:**
+```json
+{ "productId": 1, "name": "USB-C Hub", "sku": "ELEC-001", "quantity": 2, "unitPrice": 29.99 }
+```
+
+**PUT /api/cart/items/:productId body:**
+```json
+{ "quantity": 5 }
+```
+
+**POST /api/cart/checkout body:**
+```json
+{ "clientId": 1 }
+```
+
 ### Sales (Complete CRUD)
 
 | Method | Endpoint | Description | Auth |
