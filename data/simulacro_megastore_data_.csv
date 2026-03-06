@@ -1,0 +1,51 @@
+ID Transacción,Fecha,Nombre Cliente,Email Cliente,Dirección,Nombre Proveedor,Contacto Proveedor,Nombre Producto,SKU,Categoría Producto,Precio Unitario,Cantidad
+TXN-001,2024-01-15,Juan Pérez,juan.perez@email.com,Calle Principal 123 Bogotá,TechCorp,sales@techcorp.com,Laptop Gaming Pro,LP-001,Electronics,1299.99,2
+TXN-002,2024-01-15,María García,maria.garcia@email.com,Avenida Central 456 Medellín,Global Supplies,contact@globalsupplies.com,Mouse Inalámbrico,MS-002,Electronics,49.99,1
+TXN-003,2024-01-16,Carlos Rodríguez,carlos.rodriguez@email.com,Carrera 7 #45-67 Cali,TechCorp,sales@techcorp.com,Teclado Mecánico,TK-003,Electronics,89.99,1
+TXN-004,2024-01-16,Ana Martínez,ana.martinez@email.com,Calle 98 #15-20 Barranquilla,ElectroWorld,ventas@electroworld.com,Monitor 27 Pulgadas,MN-004,Electronics,399.99,1
+TXN-005,2024-01-17,Luis Hernández,luis.hernandez@email.com,Avenida El Dorado 68-20 Bogotá,TechCorp,sales@techcorp.com,Laptop Office Standard,LP-005,Electronics,899.99,1
+TXN-006,2024-01-17,Sofia López,sofia.lopez@email.com,Calle 26 #10-45 Manizales,Global Supplies,contact@globalsupplies.com,Webcam HD 1080p,WC-006,Electronics,79.99,2
+TXN-007,2024-01-18,Diego Torres,diego.torres@email.com,Carrera 15 #88-10 Bogotá,ElectroWorld,ventas@electroworld.com,Auriculares Bluetooth,AU-007,Electronics,129.99,1
+TXN-008,2024-01-18,Valentina Ruiz,valentina.ruiz@email.com,Avenida Circunvalar 10-20 Pereira,TechCorp,sales@techcorp.com,Disco Duro Externo 2TB,DD-008,Electronics,149.99,1
+TXN-009,2024-01-19,Andrés Castro,andres.castro@email.com,Calle 5 #20-30 Bucaramanga,Global Supplies,contact@globalsupplies.com,Memoria USB 128GB,USB-009,Electronics,29.99,3
+TXN-010,2024-01-19,Camila Vega,camila.vega@email.com,Carrera 43A #1-50 Medellín,ElectroWorld,ventas@electroworld.com,Tablet Android 10",TB-010,Electronics,299.99,1
+TXN-011,2024-01-20,Sebastián Morales,sebastian.morales@email.com,Avenida Chile 14-30 Bogotá,TechCorp,sales@techcorp.com,Laptop Gaming Ultra,LP-011,Electronics,2199.99,1
+TXN-012,2024-01-20,Isabella Díaz,isabella.diaz@email.com,Calle 80 #12-40 Barranquilla,Global Supplies,contact@globalsupplies.com,Mouse Gaming RGB,MS-012,Electronics,69.99,1
+TXN-013,2024-01-21,Nicolás Gómez,nicolas.gomez@email.com,Carrera 9 #18-25 Cali,ElectroWorld,ventas@electroworld.com,Monitor Curvo 32",MN-013,Electronics,599.99,1
+TXN-014,2024-01-21,Mariana Sánchez,mariana.sanchez@email.com,Avenida Santander 45-67 Manizales,TechCorp,sales@techcorp.com,Teclado Inalámbrico,TK-014,Electronics,59.99,2
+TXN-015,2024-01-22,Daniel Ortega,daniel.ortega@email.com,Calle 100 #8-30 Bogotá,Global Supplies,contact@globalsupplies.com,Cámara Web 4K,WC-015,Electronics,199.99,1
+TXN-016,2024-01-22,Paula Rojas,paula.rojas@email.com,Carrera 56 #12-89 Medellín,ElectroWorld,ventas@electroworld.com,Audífonos con Cancelación,AU-016,Electronics,249.99,1
+TXN-017,2024-01-23,Santiago Mendoza,santiago.mendoza@email.com,Avenida 68 #25-40 Bogotá,TechCorp,sales@techcorp.com,SSD 1TB,SSD-017,Electronics,179.99,1
+TXN-018,2024-01-23,Luciana Herrera,luciana.herrera@email.com,Calle 12 #34-56 Cartagena,Global Supplies,contact@globalsupplies.com,Hub USB 7 Puertos,HUB-018,Electronics,39.99,2
+TXN-019,2024-01-24,Mateo Aguilar,mateo.aguilar@email.com,Carrera 28 #15-67 Cali,ElectroWorld,ventas@electroworld.com,Smartwatch Pro,SW-019,Electronics,349.99,1
+TXN-020,2024-01-24,Emilia Vargas,emilia.vargas@email.com,Avenida Boyacá 100-20 Bogotá,TechCorp,sales@techcorp.com,Laptop Ultra Delgada,LP-020,Electronics,1599.99,1
+TXN-021,2024-01-25,Emilio Jiménez,emilio.jimenez@email.com,Calle 60 #25-40 Barranquilla,Global Supplies,contact@globalsupplies.com,Mouse Ergonómico,MS-021,Electronics,59.99,1
+TXN-022,2024-01-25,Antonella Castro,antonella.castro@email.com,Carrera 11 #78-90 Pereira,ElectroWorld,ventas@electroworld.com,Monitor UltraWide 34",MN-022,Electronics,799.99,1
+TXN-023,2024-01-26,Maximiliano Ruiz,maximiliano.ruiz@email.com,Avenida Caracas 45-67 Bogotá,TechCorp,sales@techcorp.com,Teclado Gaming Mecánico,TK-023,Electronics,149.99,1
+TXN-024,2024-01-26,Renata Flores,renata.flores@email.com,Calle 40 #15-20 Medellín,Global Supplies,contact@globalsupplies.com,Parlante Bluetooth,SP-024,Electronics,89.99,2
+TXN-025,2024-01-27,Tomás Silva,tomas.silva@email.com,Carrera 15 #60-30 Manizales,ElectroWorld,ventas@electroworld.com,Tablet Pro 12",TB-025,Electronics,599.99,1
+TXN-026,2024-01-27,Julieta Morales,julieta.morales@email.com,Avenida El Poblado 12-34 Medellín,TechCorp,sales@techcorp.com,Laptop WorkStation,LP-026,Electronics,2499.99,1
+TXN-027,2024-01-28,Benjamín Reyes,benjamin.reyes@email.com,Calle 22 #45-67 Bucaramanga,Global Supplies,contact@globalsupplies.com,Mouse Vertical,MS-027,Electronics,49.99,1
+TXN-028,2024-01-28,Morena Díaz,morena.diaz@email.com,Carrera 30 #12-45 Cali,ElectroWorld,ventas@electroworld.com,Monitor 4K 27",MN-028,Electronics,699.99,1
+TXN-029,2024-01-29,Leonardo Gómez,leonardo.gomez@email.com,Avenida 19 #45-67 Bogotá,TechCorp,sales@techcorp.com,Teclado Compacto,TK-029,Electronics,79.99,1
+TXN-030,2024-01-29,Valeria Ortiz,valeria.ortiz@email.com,Calle 72 #20-30 Barranquilla,Global Supplies,contact@globalsupplies.com,Cámara de Seguridad IP,CAM-030,Electronics,129.99,2
+TXN-031,2024-01-30,Facundo Martínez,facundo.martinez@email.com,Carrera 7 #15-20 Cartagena,ElectroWorld,ventas@electroworld.com,Audífonos Sport,AU-031,Electronics,89.99,1
+TXN-032,2024-01-30,Catalina Vega,catalina.vega@email.com,Avenida Circunvalar 8-20 Bogotá,TechCorp,sales@techcorp.com,Router WiFi 6,RTR-032,Electronics,199.99,1
+TXN-033,2024-01-31,Bruno Castro,bruno.castro@email.com,Calle 55 #30-45 Manizales,Global Supplies,contact@globalsupplies.com,Switch Ethernet 8P,SW-033,Electronics,59.99,1
+TXN-034,2024-01-31,Emma Sánchez,emma.sanchez@email.com,Carrera 20 #15-40 Pereira,ElectroWorld,ventas@electroworld.com,Mochila Laptop Premium,BG-034,Accessories,79.99,1
+TXN-035,2024-02-01,Thiago López,thiago.lopez@email.com,Avenida Chile 8-30 Bogotá,TechCorp,sales@techcorp.com,Laptop Convertible,LP-035,Electronics,1399.99,1
+TXN-036,2024-02-01,Sara Herrera,sara.herrera@email.com,Calle 33 #25-50 Cali,Global Supplies,contact@globalsupplies.com,Mouse Pad XL,PAD-036,Accessories,29.99,2
+TXN-037,2024-02-02,Gael Flores,gael.flores@email.com,Carrera 45 #18-90 Medellín,ElectroWorld,ventas@electroworld.com,Soporte Monitor Dual,ST-037,Accessories,99.99,1
+TXN-038,2024-02-02,Aitana Ruiz,aitana.ruiz@email.com,Avenida Caracas 12-40 Bogotá,TechCorp,sales@techcorp.com,Base Refrigerante Laptop,COOL-038,Accessories,49.99,1
+TXN-039,2024-02-03,Enzo Mendoza,enzo.mendoza@email.com,Calle 88 #15-30 Barranquilla,Global Supplies,contact@globalsupplies.com,Cable HDMI 4K 3m,CAB-039,Accessories,19.99,3
+TXN-040,2024-02-03,Lía Vargas,lia.vargas@email.com,Carrera 12 #45-67 Bucaramanga,ElectroWorld,ventas@electroworld.com,Organizador Cables,ORG-040,Accessories,15.99,1
+TXN-041,2024-02-04,Liam Aguilar,liam.aguilar@email.com,Avenida El Dorado 45-20 Bogotá,TechCorp,sales@techcorp.com,Laptop Gamer RTX,LP-041,Electronics,3299.99,1
+TXN-042,2024-02-04,Noa Jiménez,noa.jimenez@email.com,Calle 15 #30-45 Cartagena,Global Supplies,contact@globalsupplies.com,Mouse Óptico Básico,MS-042,Electronics,19.99,2
+TXN-043,2024-02-05,Dylan Castro,dylan.castro@email.com,Carrera 25 #12-78 Pereira,ElectroWorld,ventas@electroworld.com,Monitor Portable 15.6",MN-043,Electronics,299.99,1
+TXN-044,2024-02-05,Leire Silva,leire.silva@email.com,Avenida Santander 30-45 Manizales,TechCorp,sales@techcorp.com,Teclado Numérico,NK-044,Electronics,29.99,1
+TXN-045,2024-02-06,Nico Morales,nico.morales@email.com,Calle 50 #20-30 Cali,Global Supplies,contact@globalsupplies.com,Webcam Streamer,WC-045,Electronics,149.99,1
+TXN-046,2024-02-06,Alma Ortega,alma.ortega@email.com,Carrera 8 #15-20 Bogotá,ElectroWorld,ventas@electroworld.com,Audífonos Studio,AU-046,Electronics,399.99,1
+TXN-047,2024-02-07,Kai Rojas,kai.rojas@email.com,Avenida Poblado 45-67 Medellín,TechCorp,sales@techcorp.com,NAS Storage 4TB,NAS-047,Electronics,599.99,1
+TXN-048,2024-02-07,Naia Herrera,naia.herrera@email.com,Calle 38 #25-40 Barranquilla,Global Supplies,contact@globalsupplies.com,Mouse Trackball,MS-048,Electronics,89.99,1
+TXN-049,2024-02-08,Iker Vega,iker.vega@email.com,Carrera 18 #12-45 Cartagena,ElectroWorld,ventas@electroworld.com,Monitor Táctil 22",MN-049,Electronics,499.99,1
+TXN-050,2024-02-08,Lara Torres,lara.torres@email.com,Avenida Boyacá 60-20 Bogotá,TechCorp,sales@techcorp.com,Laptop Ejecutiva,LP-050,Electronics,1899.99,1
